@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cajas extends CI_Controller {
+class Bancos extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,22 +18,22 @@ class Cajas extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($carpeta = false, $controlaor = false){
-		$empresa 	= 'Pizzeria';
+	public function index(){
 		$menu 		= $this->load->view('menu', false, true);
 		$bancos 	= false;
 		$datos 		= array(
 			'bancos'	=> $bancos,
 		);
 		
-		$detalles 	= $this->load->view('cajas/detalles', $datos, true);
+		$detalles 	= $this->load->view('bancos/detalles', $datos, true);
 		$datos 		= array(
 			'detalles'	=> $detalles,
 		);
-		$cabecera 	= $this->load->view('cajas/cabecera', $datos, true);
+		$cabecera 	= $this->load->view('bancos/cabecera', $datos, true);
+
 		$datos 		= array(
-			'empresa'	=> $empresa,
 			'menu'		=> $menu,
+			'cabecera'	=> $cabecera,
 		);
 		$this->load->view('principal', $datos, false);
 	}
